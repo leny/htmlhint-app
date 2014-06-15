@@ -22,7 +22,7 @@
       "url": "https://github.com/mikwoskop/htmlhint-app/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "lib/htmlhint-app",
+  "main": "bin/index.html",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -33,6 +33,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-contrib-coffee": "^0.10.1",
     "grunt-coffeelint": "0.0.10",
-    "matchdep": "^0.3.0"
+    "matchdep": "^0.3.0",
+    "grunt-node-webkit-builder": "^0.1.21"
   }
 }

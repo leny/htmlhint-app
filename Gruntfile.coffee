@@ -62,6 +62,16 @@ module.exports = ( grunt ) ->
       page:
         files:
           "bin/index.html": "src/jade/index.jade"
+    nodewebkit:
+      options:
+        build_dir: "./builds"
+        app_name: "Mikwoskòp - HTMLHint"
+        mac: yes
+        mac_icns: no # TODO
+        win: yes
+        linux32: no
+        linux64: no
+      src: "./**/*"
     watch:
       jade:
         files: "src/jade/index.jade"
@@ -92,4 +102,12 @@ module.exports = ( grunt ) ->
     "coffeelint"
     "coffee"
     "watch"
+  ]
+
+  grunt.registerTask "build", [
+    "jade"
+    "stylus"
+    "coffeelint"
+    "coffee"
+    "nodewebkit"
   ]
