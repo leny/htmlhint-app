@@ -12,6 +12,16 @@ module.exports = ( grunt ) ->
       manifest:
         src: "src/manifest.json"
         dest: "bin/package.json"
+      vendors:
+        expand: yes
+        src: [ "vendors/*" ]
+        cwd: "src/js/"
+        dest: "bin/js/"
+      releases:
+        expand: yes
+        src: [ "**" ]
+        cwd: "builds/releases/Mikwoskòp - HTMLHint/"
+        dest: "releases/"
     coffeelint:
       options:
         arrow_spacing:
@@ -111,11 +121,13 @@ module.exports = ( grunt ) ->
 
   grunt.registerTask "build", [
     "clean"
-    "copy"
+    "copy:manifest"
+    "copy:vendors"
     "jade"
     "stylus"
     "coffeelint"
     "coffee"
     "install-dependencies"
     "nodewebkit"
+    "copy:releases"
   ]
