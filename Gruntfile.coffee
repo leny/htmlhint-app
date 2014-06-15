@@ -5,6 +5,13 @@ module.exports = ( grunt ) ->
   require( "matchdep" ).filterDev( "grunt-*" ).forEach grunt.loadNpmTasks
 
   grunt.initConfig
+    clean:
+      bin: [ "bin" ]
+      build: [ "builds/releases" ]
+    copy:
+      manifest:
+        src: "src/manifest.json"
+        dest: "bin/package.json"
     coffeelint:
       options:
         arrow_spacing:
@@ -64,6 +71,9 @@ module.exports = ( grunt ) ->
       page:
         files:
           "bin/index.html": "src/jade/index.jade"
+    "install-dependencies":
+      options:
+        cwd: "bin"
     nodewebkit:
       options:
         build_dir: "./builds"
@@ -92,24 +102,20 @@ module.exports = ( grunt ) ->
           livereload: yes
 
   grunt.registerTask "default", [
-    "jade"
-    "stylus"
-    "coffeelint"
-    "coffee"
+    "build"
   ]
 
   grunt.registerTask "work", [
-    "jade"
-    "stylus"
-    "coffeelint"
-    "coffee"
     "watch"
   ]
 
   grunt.registerTask "build", [
+    "clean"
+    "copy"
     "jade"
     "stylus"
     "coffeelint"
     "coffee"
+    "install-dependencies"
     "nodewebkit"
   ]
