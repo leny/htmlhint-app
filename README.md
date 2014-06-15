@@ -7,6 +7,12 @@
 
 * * *
 
+# WARNING
+
+**Mikwoskòp** is in early development stages. Nothing's ready yet. Please come back soon.
+
+* * *
+
 ## Getting Started
 
 ### Download binaries
