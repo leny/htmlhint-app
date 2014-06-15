@@ -1,0 +1,41 @@
+{
+  "name": "mikwoskop-htmlhint",
+  "version": "0.0.1",
+  "description": "Simple HTMLhint app",
+  "main": "index.html",
+  "window": {
+    "title": "Mikwoskòp - HTMLHint",
+    "toolbar": false,
+    "frame": true,
+    "width": 800,
+    "height": 600
+  },
+  "webkit": {
+    "plugin": false
+  },
+  "mainteners": [
+    {
+      "name": "leny",
+      "email": "pierre-antoine@delnatte.be",
+      "web": "http://leny.me"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikwoskop/htmlhint-app.git",
+    "path": "builds/releases/Mikwoskòp - HTMLHint"
+  },
+  "bugs": {
+    "url": "https://github.com/mikwoskop/htmlhint-app/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mikwoskop/htmlhint-app/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "htmlhint": "^0.9.5",
+    "os-name": "^0.1.2"
+  }
+}
