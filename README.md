@@ -36,6 +36,22 @@ _(Coming soon)_
 
 _(Coming soon)_
 
+### TODO
+
+* [ ] First design
+* [ ] Write functional code
+    * [ ] Get one file content
+    * [ ] Analyse file content with linter
+    * [ ] Show errors (+design)
+    * [ ] Parameters for linter
+    * [ ] Handle multiple files
+* [ ] First release (0.1)
+* [ ] Specific design for:
+    * [ ] Mac OS X Mavericks
+    * [ ] Mac OS X Yosemite
+    * [ ] Windows
+    * [ ] Linux
+
 ## Release History
 
 * **2014/06/15:** starting project
