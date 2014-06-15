@@ -50,6 +50,8 @@ module.exports = ( grunt ) ->
         src: [ "*.coffee" ]
         dest: "bin/js"
         ext: ".js"
+        options:
+          bare: yes
     stylus:
       options:
         compress: no
@@ -71,7 +73,7 @@ module.exports = ( grunt ) ->
         win: yes
         linux32: no
         linux64: no
-      src: "./**/*"
+      src: "bin/**/*"
     watch:
       jade:
         files: "src/jade/index.jade"

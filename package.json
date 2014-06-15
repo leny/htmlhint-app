@@ -22,7 +22,6 @@
       "url": "https://github.com/mikwoskop/htmlhint-app/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "bin/index.html",
   "engines": {
     "node": ">= 0.10.0"
   },
