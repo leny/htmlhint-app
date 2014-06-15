@@ -5,23 +5,31 @@ module.exports = ( grunt ) ->
   require( "matchdep" ).filterDev( "grunt-*" ).forEach grunt.loadNpmTasks
 
   grunt.initConfig
+    bumpup: "src/manifest.json"
     clean:
       bin: [ "bin" ]
       build: [ "builds/releases" ]
+      releases: [ "releases" ]
     copy:
       manifest:
         src: "src/manifest.json"
         dest: "bin/package.json"
+      assets:
+        expand: yes
+        src: [ "assets/**/*" ]
+        cwd: "src/"
+        dest: "bin/"
       vendors:
         expand: yes
-        src: [ "vendors/*" ]
+        src: [ "vendors/**/*" ]
         cwd: "src/js/"
         dest: "bin/js/"
-      releases:
-        expand: yes
-        src: [ "**" ]
-        cwd: "builds/releases/Mikwoskòp - HTMLHint/"
-        dest: "releases/"
+    markdown:
+      credits:
+        files: [
+          src: "src/about.md"
+          dest: "bin/about.html"
+        ]
     coffeelint:
       options:
         arrow_spacing:
@@ -86,14 +94,21 @@ module.exports = ( grunt ) ->
         cwd: "bin"
     nodewebkit:
       options:
-        build_dir: "./builds"
+        build_dir: "builds"
         app_name: "Mikwoskòp - HTMLHint"
         mac: yes
-        mac_icns: no # TODO
+        mac_icns: "bin/assets/icons/icon.icns"
+        credits: "bin/about.html"
         win: yes
         linux32: no
         linux64: no
       src: "bin/**/*"
+    rename:
+      releases:
+        files: [
+          src: "builds/releases/Mikwoskòp - HTMLHint/"
+          dest: "releases/"
+        ]
     watch:
       jade:
         files: "src/jade/index.jade"
@@ -121,13 +136,18 @@ module.exports = ( grunt ) ->
 
   grunt.registerTask "build", [
     "clean"
+    "bumpup:prerelease"
     "copy:manifest"
     "copy:vendors"
+    "copy:assets"
+    "markdown"
     "jade"
     "stylus"
     "coffeelint"
     "coffee"
     "install-dependencies"
     "nodewebkit"
-    "copy:releases"
+    "rename:releases"
+    # "clean:bin"
+    # "clean:build"
   ]
