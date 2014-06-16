@@ -1,6 +1,6 @@
 {
   "name": "mikwoskop-htmlhint",
-  "version": "0.1.0-0",
+  "version": "0.1.0-1",
   "description": "Simple HTMLhint app",
   "main": "index.html",
   "window": {
