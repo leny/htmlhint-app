@@ -1,3 +1,10 @@
+### Changelog
+
+* **0.1.1** (2014/06/16): fix build process
+* **0.1** (2014/06/16): first release
+
+* * *
+
 Copyright (c) 2014 [Leny](http://leny.me)
 
 * * * 
