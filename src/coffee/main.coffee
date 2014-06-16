@@ -29,6 +29,7 @@ htmlEntities = ( sStr ) ->
 lintFiles = ->
     $results.empty()
     $reloadLink.hide()
+    iTotalErrors = 0
     oParameters = {}
     for oParam in $( "#params form" ).serializeArray()
         continue if oParam.value is "0"
@@ -45,6 +46,7 @@ lintFiles = ->
                 .text if ( iErrors = aErrors.length ) > 1 then "#{ iErrors } errors" else "#{ iErrors } error"
                 .end()
             .appendTo $results
+        iTotalErrors += iErrors
         $fileReportList = $file.find "ol"
         for oError in aErrors
             ( $error = $reportTemplate.clone() )
@@ -64,6 +66,7 @@ lintFiles = ->
                         .end()
                     .end()
                 .appendTo $fileReportList
+    $( "div.right h3 span" ).show().text " (#{ iTotalErrors } errors in #{ aFiles.length } files)"
     $reloadLink.show()
 
 filesSelected = ( e ) ->
@@ -91,3 +94,5 @@ $ ->
         $( "#files input" ).trigger "click"
 
     $( "#files input" ).on "change", filesSelected
+
+    # require( "nw.gui" ).Window.get().showDevTools()
