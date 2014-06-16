@@ -160,6 +160,6 @@ module.exports = ( grunt ) ->
     "install-dependencies"
     "nodewebkit"
     "rename:releases"
-    # "clean:bin"
-    # "clean:build"
+    "clean:bin"
+    "clean:build"
   ]
