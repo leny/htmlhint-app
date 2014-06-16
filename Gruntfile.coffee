@@ -97,7 +97,7 @@ module.exports = ( grunt ) ->
     nodewebkit:
       options:
         build_dir: "builds"
-        app_name: "Mikwoskòp - HTMLHint"
+        app_name: "mikwoskop-htmlhint"
         mac: yes
         mac_icns: "bin/assets/icons/icon.icns"
         credits: "bin/about.html"
@@ -105,11 +105,45 @@ module.exports = ( grunt ) ->
         linux32: yes
         linux64: yes
       src: "bin/**/*"
-    rename:
-      releases:
+    compress:
+      options:
+        pretty: yes
+        mode: "zip"
+      mac:
+        options:
+          archive: "releases/mac/mikwoskop-htmlhint.zip"
         files: [
-          src: "builds/releases/Mikwoskòp - HTMLHint/"
-          dest: "releases/"
+          expand: yes
+          cwd: "builds/releases/mikwoskop-htmlhint/mac/"
+          src: [ "**" ]
+          dest: "/"
+        ]
+      win:
+        options:
+          archive: "releases/win/mikwoskop-htmlhint.zip"
+        files: [
+          expand: yes
+          cwd: "builds/releases/mikwoskop-htmlhint/win/"
+          src: [ "**" ]
+          dest: "/"
+        ]
+      linux32:
+        options:
+          archive: "releases/linux32/mikwoskop-htmlhint.zip"
+        files: [
+          expand: yes
+          cwd: "builds/releases/mikwoskop-htmlhint/linux32/"
+          src: [ "**" ]
+          dest: "/"
+        ]
+      linux64:
+        options:
+          archive: "releases/linux64/mikwoskop-htmlhint.zip"
+        files: [
+          expand: yes
+          cwd: "builds/releases/mikwoskop-htmlhint/linux64/"
+          src: [ "**" ]
+          dest: "/"
         ]
     watch:
       jade:
@@ -159,7 +193,7 @@ module.exports = ( grunt ) ->
     "coffee"
     "install-dependencies"
     "nodewebkit"
-    "rename:releases"
+    "compress"
     "clean:bin"
     "clean:build"
   ]
