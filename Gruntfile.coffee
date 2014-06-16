@@ -30,6 +30,8 @@ module.exports = ( grunt ) ->
           src: "src/about.md"
           dest: "bin/about.html"
         ]
+        options:
+          templateContext: {}
     coffeelint:
       options:
         arrow_spacing:
@@ -100,8 +102,8 @@ module.exports = ( grunt ) ->
         mac_icns: "bin/assets/icons/icon.icns"
         credits: "bin/about.html"
         win: yes
-        linux32: no
-        linux64: no
+        linux32: yes
+        linux64: yes
       src: "bin/**/*"
     rename:
       releases:
@@ -132,6 +134,16 @@ module.exports = ( grunt ) ->
 
   grunt.registerTask "work", [
     "watch"
+  ]
+
+  grunt.registerTask "check", [
+    "copy:vendors"
+    "copy:assets"
+    "markdown"
+    "jade"
+    "stylus"
+    "coffeelint"
+    "coffee"
   ]
 
   grunt.registerTask "build", [
