@@ -3,8 +3,209 @@
 
 // resets
 meyer-reset()
+box-sizing-reset()
+
+// fonts
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-Regular", formats: eot woff )
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-RegularItalic", normal, italic, formats: eot woff )
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-Bold", bold, formats: eot woff )
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-BoldItalic", bold, italic, formats: eot woff )
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-Light", lighter, formats: eot woff )
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-LightItalic", lighter, italic, formats: eot woff )
+FiraSans = "FiraSans", font-stack( "Helvetica" )
+font-face( "FiraMono", "../assets/fonts/FiraMono/FiraMono-Regular", formats: eot woff )
+font-face( "FiraMono", "../assets/fonts/FiraMono/FiraMono-Bold", bold, formats: eot woff )
+FiraMono = "FiraMono", font-stack( "Consolas" )
+font-face( "WebHostingHub", "../assets/fonts/webhostinghub/webhostinghub-glyphs-webfont", formats: eot ttf svg )
+Glyphs = "WebHostingHub"
+
+*
+    -webkit-font-smoothing antialiased
+
+html
+    font normal 62.5% FiraSans
+    color black
 
 body
-    background silver
-    font normal 62.5% Verdana, sans-serif
-    color black
+    position relative
+    clear fix
+    background #dadada
+
+.left
+    width 40%
+    float left
+    padding 5px
+
+.right
+    position relative
+    width 60%
+    height 595px
+    float right
+    padding 65px 5px 5px 25px
+    &:before
+        content ""
+        position absolute
+        display block
+        width 1px
+        height 525px
+        background gray
+        left 10px
+        bottom 5px
+
+header
+    height 50px
+    margin 0 auto 10px
+    clear fix
+    figure
+        float left
+        margin 0 5px 0 0
+        img
+            display block
+    h1
+        margin 8px auto 5px
+        font bold 1.8rem FiraSans
+    h2
+        margin 0 auto
+        font italic normal 1.4rem FiraSans
+
+#files
+    position relative
+    margin 0 auto 15px 2px
+    input
+        position absolute
+        left -9999px
+    a
+        display block
+        padding 10px 0
+        border 1px solid tint( #7171c6, 75% )
+        border-radius 5px
+        background #7878c3
+        box-shadow 0 0 5px rgba( black, .5 )
+        font normal 1.5rem FiraSans
+        color white
+        text-align center
+        text-decoration none
+        text-shadow 0 1px 1px rgba( black, .5 )
+        transition background .25s ease-in-out
+        &:hover
+            background #7171c6
+            text-shadow 0 -1px 1px rgba( black, .5 )
+
+h3
+    margin 0 auto 8px
+    font bold 1.4rem FiraSans
+    color #777
+
+.right
+    h3
+        margin 0 auto 20px
+        span
+            display none
+            font-weight lighter
+
+#params
+    height 478px
+    overflow scroll
+    fieldset
+        margin 0 auto 5px
+        legend
+            display block
+            margin 0 0 10px
+            font normal 1.3rem FiraSans
+            color #555
+            text-align left
+        div.form-elt
+            margin 0 auto 5px 5px
+            label
+                display block
+                input
+                    margin 0 5px 0 0
+                    vertical-align 0
+                span
+                    font normal 1.2rem FiraSans
+                p
+                    margin 3px 0 0 18px
+                    font italic lighter 1.2rem/1.25 FiraSans
+                    color gray
+                & + label
+                    margin 5px 0 0
+            &.multiple
+                margin 0 auto 5px 5px
+                strong
+                    display block
+                    margin 0 auto 5px
+                    font normal 1.2rem FiraSans
+                label
+                    margin 0 auto 5px 18px
+
+#results
+    height 508px
+    overflow scroll
+    &:empty
+        &:before
+            content "There's nothing to see here!"
+            display block
+            font italic normal 1.2rem/508px FiraSans
+            color gray
+            text-align center
+    > li
+        clear fix
+        margin 0 5px 10px auto
+        padding 0 0 10px
+        border-bottom 1px dotted gray
+        &:last-child
+            border-bottom 0
+        > strong
+            display block
+            width 75%
+            float left
+            margin 0 auto 10px
+            font bold 1.4rem/1 FiraMono
+            text-align left
+        > span
+            display block
+            width 25%
+            float left
+            font normal 1.2rem/1.4rem FiraMono
+            text-align right
+        ol
+            clear both
+            margin 0 auto 5px
+            &:empty
+                display none
+            li
+                margin 10px auto 0
+                padding 10px 0 0 0
+                & + li
+                    border-top 1px dotted silver
+                > span
+                    display block
+                    margin 0 auto 10px
+                    font normal 1.2rem FiraSans
+                    color gray
+                > code
+                    display block
+                    margin 0 auto 10px 10px
+                    font normal 1.2rem FiraMono
+                    color black
+                    strong
+                        font-weight bold
+                        color #c30
+                p
+                    margin 0 auto 5px
+                    font normal 1.2rem/1.15 FiraSans
+                    color #444
+                    a
+                        font-weight bold
+                        color #7878c3
+                        text-decoration none
+
+#reload
+    position absolute
+    display none
+    top 67px
+    right 10px
+    font bold 1.2rem FiraSans
+    color #7878c3
+    text-decoration none
+    text-align right
