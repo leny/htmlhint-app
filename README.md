@@ -39,6 +39,7 @@ _(Coming soon)_
 ### TODO
 
 * [x] First release (0.1)
+* [ ] Compact design
 * [ ] Refactor code
 * [ ] Add drag'n'drop support
 * [ ] Specific design for:
