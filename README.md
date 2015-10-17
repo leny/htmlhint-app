@@ -9,7 +9,7 @@
 
 ## Getting Started
 
-**Note:** this is the first (and too fast made) version of the app. The design is ugly, and will be change soon.  
+**Note:** this is the first (and made-too-fast) version of the app. The design is ugly and will be changed soon.  
 The purpose was to test `node-webkit` system. :)
 
 ### Download binaries
